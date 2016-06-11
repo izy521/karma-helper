@@ -10,6 +10,7 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -23,15 +24,15 @@
   <body>
     <nav class="white" role="navigation">
       <div class="nav-wrapper container">
-        <a id="logo-container" href="#" class="brand-logo cyan-text">Karma Helper</a>
+        <a id="logo-container" href="index.html" class="brand-logo cyan-text">Karma Helper</a>
         <ul class="right hide-on-med-and-down">
           <li><a class="cyan-text" href="index.html"><i class="material-icons">search</i></a></li>
-          <li><a class="cyan-text" href="about.html"><i class="material-icons">live_help</i></a></li>
+          <li class="active"><a class="cyan-text" href="about.html"><i class="material-icons">live_help</i></a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
           <li><a class="cyan-text" href="index.html">Home</a></li>
-          <li><a class="cyan-text" href="about.html">About</a></li>
+          <li class="active"><a class="cyan-text" href="about.html">About</a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
       </div>
@@ -80,6 +81,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-    <script src="/init.js"></script>
+    <script src="init.js"></script>
   </body>
 </html>

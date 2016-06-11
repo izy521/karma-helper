@@ -10,6 +10,7 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -23,28 +24,36 @@
   <body>
     <nav class="white" role="navigation">
       <div class="nav-wrapper container">
-        <a id="logo-container" href="#" class="cyan-text brand-logo">Karma Helper</a>
+        <a id="logo-container" href="index.html" class="cyan-text brand-logo">Karma Helper</a>
         <ul class="right hide-on-med-and-down">
-          <li><a class="cyan-text" href="index.html"><i class="material-icons">search</i></a></li>
+          <li class="active"><a class="cyan-text" href="index.html"><i class="material-icons">search</i></a></li>
           <li><a class="cyan-text" href="about.html"><i class="material-icons">live_help</i></a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
-          <li><a class="cyan-text" href="index.html">Home</a></li>
+          <li class="active"><a class="cyan-text" href="index.html">Home</a></li>
           <li><a class="cyan-text" href="about.html">About</a></li>
         </ul>
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
       </div>
     </nav>
     <div class="container">
+      <br><br>
       <div class="row center">
-        <h1>Welcome to Karma Helper!</h1>
-        <h5 class="light">A small application that .</h5>
+        <h1 class="header center cyan-text">Welcome to Karma Helper!</h1>
+      </div>
+      <div class="row center">
+        <h5 class="header col s12 light">A small application that helps you find the best time to post your meme!</h5>
+      </div>
+      <br><br>
+    </div>
+
+    <div class="container">
+      <div class="section">
+        <h3 class="header col s12">Choose a Subreddit</h3>
       </div>
     </div>
 
-    
-    
     <footer class="page-footer cyan">
       <div class="container">
         <div class="row">
@@ -83,6 +92,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-    <script src="/init.js"></script>
+    <script src="init.js"></script>
   </body>
 </html>
