@@ -1,6 +1,6 @@
 {
   "name": "karma-helper",
-  "version": "0.1",
+  "version": "0.1.0",
   "description": "A Node.js app to find the best time to post to reddit",
   "engines": {
     "node": "5.9.1"
