@@ -32,10 +32,7 @@ app.get('/*.json', function(req, res) {
         var date = new Date(post.data.created_utc*1000);
         results[date.getHours()] += post.data.score;
       }
-      //ANOVA
-      stat.anova({type: 'oneway', vals: results}, function(obj) {
-        obj.
-      });
+      //ANOVA to be here
       //Find best time to post
       var top = 0;;
       var topScore = 0;
