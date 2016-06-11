@@ -13,7 +13,7 @@ app.get('/*.json', function(req, res) {
   res.setHeader('Content-Type', 'application/json');
   var url = req.url;
   var redditResponse;
-  url = "http://www.reddit.com/r" + url.substring(0, url.length - 5) + "/top.json";
+  url = "http://www.reddit.com/r" + url.substring(0, url.length - 5) + "/hot.json?limit=100";
   var request = http.get(url, function(response) {
     var json = '';
     response.on('data', function(chunk) {
@@ -22,13 +22,28 @@ app.get('/*.json', function(req, res) {
 
     response.on('end', function() {
       redditResponse = JSON.parse(json);
-      var result = [];
+      //Put in scores by hour
+      var results = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       for(var i = 0; i < redditResponse.data.children.length; i++) {
         var post = redditResponse.data.children[i];
-        result.push({score: post.data.score, time: post.data.created_utc});
+        var date = new Date(post.data.created_utc*1000);
+        results[date.getHours()] += post.data.score;
+      }
+      //ANOVA
+      stat.anova({type: 'oneway', vals: results}, function(obj) {
+        obj.
+      });
+      //Find best time to post
+      var top = 0;;
+      var topScore = 0;
+      for(var i = 0; i < results.length; i++) {
+        if(results[i] > topScore) {
+          topScore = results[i];
+          top = i;
+        }
       }
       res.contentType('application/json');
-      res.send(result);
+      res.send({result: results, best: top, bestScore: topScore});
     })
   });
   request.on('error', function(err) {
