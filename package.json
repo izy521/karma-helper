@@ -10,11 +10,14 @@
   },
   "scripts": {
     "start": "node app.js",
-    "monitor": "nodemon app.js",
-    "deploy": "gcloud preview app deploy"
   },
   "dependencies": {
     "express": "^4.13.4",
     "jsregress": "0.0.3"
   }
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/h313/karma-helper"
+  },
+  "license": "GPL3"
 }
