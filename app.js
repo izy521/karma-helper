@@ -13,7 +13,7 @@ app.get('/*.json', function(req, res) {
   res.setHeader('Content-Type', 'application/json');
   var url = req.url;
   var redditResponse;
-  url = "http://www.reddit.com/r" + url.substring(0, url.length - 5) + "/hot.json?count=100";
+  url = "http://www.reddit.com/r" + url.substring(0, url.length - 5) + "/top.json";
   var request = http.get(url, function(response) {
     var json = '';
     response.on('data', function(chunk) {
@@ -22,7 +22,11 @@ app.get('/*.json', function(req, res) {
 
     response.on('end', function() {
       redditResponse = JSON.parse(json);
-
+      var result = [];
+      for(var post in redditResponse.data.children) {
+        result.push(post);
+      }
+      res.contentType('application/json');
       res.send(redditResponse);
     })
   });
