@@ -23,11 +23,12 @@ app.get('/*.json', function(req, res) {
     response.on('end', function() {
       redditResponse = JSON.parse(json);
       var result = [];
-      for(var post in redditResponse.data.children) {
-        result.push(post);
+      for(var i = 0; i < redditResponse.data.children.length; i++) {
+        var post = redditResponse.data.children[i];
+        result.push({score: post.data.score, time: post.data.created_utc});
       }
       res.contentType('application/json');
-      res.send(redditResponse);
+      res.send(result);
     })
   });
   request.on('error', function(err) {
