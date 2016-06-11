@@ -1,17 +1,16 @@
 {
   "name": "karma-helper",
-  "description": "Tells you when to post to a specific reddit sub for maximum karma",
-  "version": "0.0.1",
-  "private": true,
-  "license": "Apache Version 2.0",
-  "author": "Haoda Wang",
+  "version": "0.1",
+  "description": "A Node.js app to find the best time to post to reddit",
   "engines": {
-    "node": "~4.2"
+    "node": "5.9.1"
   },
+  "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "node app.js"
   },
   "dependencies": {
+    "ejs": "2.4.1",
     "express": "^4.13.4",
     "jsregress": "0.0.3"
   },
@@ -19,5 +18,10 @@
     "type": "git",
     "url": "https://github.com/h313/karma-helper"
   },
-  "license": "GPL3"
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
 }
