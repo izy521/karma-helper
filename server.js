@@ -4,10 +4,19 @@ var stat = require('jsregress');
 var express = require('express');
 var unirest = require('unirest');
 var http = require('http');
+var fs = require('fs');
+var sysInfo = require('./utils/sys-info');
+var contentTypes = require('./utils/content-types');
+var path = require('path');
 
 var app = express();
 
 app.set('json spaces', 2);
+
+app.get('/health', function(req, res) {
+  res.writeHead(200);
+  res.end();
+});
 
 app.get('/*.json', function(req, res) {
   res.setHeader('Content-Type', 'application/json');
