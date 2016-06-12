@@ -6,13 +6,19 @@ var http = require('http');
 
 var app = express();
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.set('json spaces', 2);
 
-app.get('/', function(req,res) {
+app.get('/', function(req,res,next) {
   res.send("I'm working!");
 });
 
-app.get('/*.json', function(req, res) {
+app.get('/*.json', function(req,res,next) {
   res.setHeader('Content-Type', 'application/json');
   var url = req.url;
   var redditResponse;
