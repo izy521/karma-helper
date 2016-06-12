@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=en>
+<html lang=en ng-app="karma-helper" ng-controller="KarmaHelperController as app">
   <head>
     <meta charset=utf-8>
     <meta http-equiv=X-UA-Compatible content="IE=edge">
@@ -20,6 +20,7 @@
         ga('create', 'UA-78561306-5', 'auto');
         ga('send', 'pageview');
     </script>
+    <script src="app.js"></script>
   </head>
   <body>
     <nav class="white" role="navigation">
@@ -50,7 +51,7 @@
 
     <div class="container">
       <div class="row center">
-        <h3 class="header col s12">Choose a Subreddit</h3>
+        <h3 class="header col s12">Input a Subreddit:</h3>
         <div class="input-field col s6 offset-s3">
           <i class="material-icons prefix cyan-text">account_circle</i>
           <input value="pcmasterrace" id="subreddit" type="text" class="validate">
@@ -62,6 +63,10 @@
           <i class="material-icons right">send</i>
         </button>
       </div>
+    </div>
+      
+    <div>
+      
     </div>
 
     <footer class="page-footer cyan">
