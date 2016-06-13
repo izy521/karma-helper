@@ -8,7 +8,7 @@ helper.controller('HelperController', ['$http', '$scope', function($http, $scope
   $scope.bestTime = 0;
   $scope.bestScore = 0;
   $http.get('https://karma-helper.herokuapp.com/' + $scope.subreddit + '.json').success(function(data){
-    $scope.results = data.results;
+    $scope.results = data.result;
     $scope.bestTime = data.best;
     $scope.bestScore = data.bestScore;
   });
