@@ -12,6 +12,7 @@
   "dependencies": {
     "ejs": "2.4.1",
     "express": "^4.13.4",
+    "http": "0.0.0",
     "jsregress": "0.0.3"
   },
   "repository": {
