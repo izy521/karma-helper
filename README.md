@@ -31,4 +31,4 @@ Here's a very quick rundown of how to use it:
 result gives you the total scores of the top 100 hot posts of the subreddit by the hour. Best shows the best hour to post, in UTC, and bestScore is the karma gained by posts posted during that period.
 
 ##Front End##
-[Is here]{https://github.com/h313/karma-helper/tree/gh-pages}
+[Is here](https://github.com/h313/karma-helper/tree/gh-pages)
