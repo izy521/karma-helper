@@ -1,7 +1,25 @@
 # karma-helper
-When should you post to Reddit? This beauty helps you find the right time!
+A reddit point scorer using Node.js.
 
-karma-helper.herokuapp.com
+Demo: [karma-helper.herokuapp.com](karma-helper.herokuapp.com)
+
+Frontend: [http://h313.github.io/karma-helper](http://h313.github.io/karma-helper/)
+
+##Setup##
+In order to get this working, there's literally one command you need (if you have node.js installed) aside from installing the dependencies, which are:
+
+* [Express.js](http://expressjs.com/)
+* [JSRegress](https://github.com/cjqed/jsRegress)
+
+After installing these, just use the command
+
+    node app.js
+
+within the project dir. Go to:
+
+    localhost/8080
+    
+and the page should say, "I'm working!"
 
 ##How do I even use this!?##
 Here's a very quick rundown of how to use it:
