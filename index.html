@@ -7,6 +7,9 @@
     <script src="app.js"></script>
   </head>
   <body ng-controller="HelperController as helpApp">
+    <form ng-submit="getResults()">
+      <input type="text" ng-model="subreddit"></form>
+    </form>
     <p>{{subreddit}}</p>
     <p>{{results}}</p>
     <p>{{bestTime}}</p>
