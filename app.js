@@ -1,6 +1,5 @@
 'use strict';
 
-var stat = require('jsregress');
 var express = require('express');
 var http = require('http');
 
@@ -37,26 +36,32 @@ app.get('/*.json', function(req,res,next) {
     });
 
     response.on('end', function() {
-      redditResponse = JSON.parse(json);
-      if(redditResponse.error) {
-        res.send({error: redditResponse.error});
-      }
-      else {
-        //Put in scores by hour
-        for(var i = 0; i < redditResponse.data.children.length; i++) {
-          var post = redditResponse.data.children[i];
-          var date = new Date(post.data.created_utc*1000);
-          results[date.getHours()] += post.data.score;
+      try {
+        redditResponse = JSON.parse(json);
+        
+        if(redditResponse.error) {
+          res.send({error: redditResponse.error});
         }
-        //ANOVA to be here
-        //Find best time to post
-        for(var i = 0; i < results.length; i++) {
-          if(results[i] > topScore) {
-            topScore = results[i];
-            top = i;
+        else {
+          //Put in scores by hour
+          for(var i = 0; i < redditResponse.data.children.length; i++) {
+            var post = redditResponse.data.children[i];
+            var date = new Date(post.data.created_utc*1000);
+            results[date.getHours()] += post.data.score;
           }
+          //ANOVA to be here
+          //Find best time to post
+          for(var i = 0; i < results.length; i++) {
+            if(results[i] > topScore) {
+              topScore = results[i];
+              top = i;
+            }
+          }
+          res.send({result: results, best: top, bestScore: topScore});
         }
-        res.send({result: results, best: top, bestScore: topScore});
+      }
+      catch (err) {
+        res.send({error: -10});
       }
     })
   });
