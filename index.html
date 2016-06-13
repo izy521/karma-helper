@@ -3,14 +3,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/angular.chartjs/0.8.8/angular-chart.min.css">
     <link rel="stylesheet" href="http://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.5/Chart.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/angular.chartjs/0.8.8/angular-chart.min.js"></script>
     <script src="app.js"></script>
   </head>
   <body>
+    <a href="https://github.com/h313/karma-helper"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
     <div class="container" ng-controller="HelperController as helpApp">
       <form ng-submit="getResults()">
         <div class="input-field">
@@ -23,9 +25,20 @@
           <i class="material-icons right">send</i>
         </button>
       </div>
-      <div class="row">
-        <div class="col s12 m6 offset-s3" ng-hide="!error">
-          <div class="card blue-grey darken-1">
+      <div class="row center">
+        <div class="preloader-wrapper big active" ng-hide="!loading">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col s6 offset-s3" ng-hide="!error">
+          <div class="card teal darken-1">
             <div class="card-content white-text">
               <span class="card-title">Whoops!</span>
               <p>Something went wrong while we were working! Most likely, the subreddit doesn't exsist! Please email the creator and yell at him! Error code: <b>{{status}}</b></p>
@@ -36,14 +49,14 @@
             </div>
           </div>
         </div>
-        <div class="col s12 m6 offset-s3" ng-hide="!gotDataYet">
-          <div class="card blue-grey darken-1">
+        <div class="col s6 offset-s3" ng-hide="!gotDataYet">
+          <div class="card teal darken-1">
             <div class="card-content white-text">
               <span class="card-title">I have data!</span>
                 <p>Best time to post: <b>Between {{bestTime}}:00 and {{bestTime + 1}}:00 UTC.</b> Posts within this timeframe have scored <b>{{bestScore}}</b> upvotes in total.</p>
             </div>
             <div class="card-action">
-              <a href="mailto:h313@users.noreply.github.com">Email the guy!</a>
+              <a href="https://www.reddit.com/r/{{subreddit}}/submit">Post it now!</a>
               <a href="https://www.reddit.com/r/{{subreddit}}">Check the subreddit!</a>
             </div>
           </div>

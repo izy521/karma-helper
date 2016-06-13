@@ -8,9 +8,12 @@ helper.controller('HelperController', ['$http', '$scope', function($http, $scope
   $scope.gotDataYet = false;
   $scope.error = false;
   $scope.status = 0;
+  $scope.loading = false;
 
   $scope.getResults = function() {
+    $scope.loading = true;
     $http.get('https://karma-helper.herokuapp.com/' + $scope.subreddit + '.json').success(function(data){
+      $scope.loading = false;
         if(data.error) {
           $scope.error = true;
           $scope.gotDataYet = false;
@@ -20,7 +23,7 @@ helper.controller('HelperController', ['$http', '$scope', function($http, $scope
           $scope.data = data.result;
           $scope.bestTime = data.best;
           $scope.bestScore = data.bestScore;
-          
+
           $scope.gotDataYet = true;
           $scope.error = false;
           $scope.status = 200;
