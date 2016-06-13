@@ -2,7 +2,7 @@
 
 var express = require('express');
 var http = require('http');
-
+var jsregress = require('jsregress');
 var app = express();
 
 app.use(function(req, res, next) {
@@ -38,7 +38,7 @@ app.get('/*.json', function(req,res,next) {
     response.on('end', function() {
       try {
         redditResponse = JSON.parse(json);
-        
+
         if(redditResponse.error) {
           res.send({error: redditResponse.error});
         }
@@ -57,7 +57,7 @@ app.get('/*.json', function(req,res,next) {
               top = i;
             }
           }
-          res.send({result: results, best: top, bestScore: topScore});
+          res.send({result: results, mean: results.mean(), std: results.std(), best: top, bestScore: topScore});
         }
       }
       catch (err) {
