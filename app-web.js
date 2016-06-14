@@ -1,26 +1,23 @@
 function karmaHelper(sub) {
-	return new Promise((resolve, reject) => {
-		fetch(`${window.location.protocol}//www.reddit.com/r/${sub}/hot.json?limit=100`)
-			.then(r => r.json())
-			.then(rr => {
-				var results = new Array(24).fill(0);
-				var topScore = 0, top = 0;
-				
-				rr.data.children.forEach( post => {
-					results[ (new Date(post.data.created_utc * 1000)).getHours() ] += post.data.score;
-				});
-				
-				results.forEach( (n, i) => {
-					if (n > topScore) {
-						topScore = n;
-						top = i;
-					}
-				});
-				
-				resolve({ results: results, mean: mean(results), std: std(results), best: top, bestScore: topScore });
-			})
-			.catch(err => reject(err));
-	});
+	return fetch(`${window.location.protocol}//www.reddit.com/r/${sub}/hot.json?limit=100`)
+		.then(r => r.json())
+		.then(rr => {
+			var results = new Array(24).fill(0);
+			var topScore = 0, top = 0;
+			
+			rr.data.children.forEach( post => {
+				results[ (new Date(post.data.created_utc * 1000)).getHours() ] += post.data.score;
+			});
+			
+			results.forEach( (n, i) => {
+				if (n > topScore) {
+					topScore = n;
+					top = i;
+				}
+			});
+			
+			return { results: results, mean: mean(results), std: std(results), best: top, bestScore: topScore };
+		});
 }
 
 function mean(arr) {
